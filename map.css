@@ -6,10 +6,8 @@
     background: #fff;
     box-shadow: 0 1px 2px 2px rgba(0,0,0,0.2);
     border-radius: 4px;
-    left: 50%;
-    margin-left:-245px;
 }
-
+/*
 .holder:after, .holder:before{
 	position:absolute;
   content:'';
@@ -27,16 +25,39 @@
 	left:75%;
   margin-left:-125px;
 }
+*/
+.centering{
+    -webkit-transition: all 250ms ease;
+    transform-origin: 20% 40%;
+    -webkit-transform-origin:80% bottom;
+;
+}
+.centering:hover {
+    -webkit-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
 
-#tapa, .map-container{
-    background-color: red;
+
+}
+
+.map-container {
     width: 200px!important;
-    height: 400px!important;
+    height: 300px!important;
+}
+
+#tapa {
+    /* http://pixabay.com/p-56875/?no_redirect */
+    background: url('tapa.jpg');
+    background-clip: border-box
+    width: 190px;
+    height: 290px;
+    border: solid 5px white;
+    overflow: hidden;
 }
 
 #map, .uc-final{
   width: 400px;
-  height: 800px;
+  height: 600px;
 }
 
 
@@ -84,7 +105,7 @@
                 0 4px 3px hsla(0,0%,0%,.3),
                 0 6px 6px hsla(0,0%,0%,.1),
                 2px 10px 6px hsla(0,0%,0%,.7);
-    
+
 }
 
 .pin:hover:after {
@@ -107,4 +128,138 @@
     z-index: 98;
     left: -30px;
     top: 15px;    
+}
+
+.stamp {
+    width: 100%;
+    height:100%;
+    left: -10px;
+    top: -10px;
+	display: inline-block;
+	padding: 10px;
+	background: white;
+	position: relative;
+
+	/*The stamp cutout will be created using crisp radial gradients*/
+	background: radial-gradient(
+		transparent 0px, 
+		transparent 4px, 
+		white 4px,
+		white
+	);
+	/*reducing the gradient size*/
+	background-size: 20px 20px!important;
+	/*Offset to move the holes to the edge*/
+	background-position: -10px -10px;
+}
+.stamp:after {
+	content: '';
+	position: absolute;
+	/*We can shrink the pseudo element here to hide the shadow edges*/
+	left: 5px; top: 5px; right: 5px; bottom: 5px;
+	/*Shadow - doesn't look good because of the stamp cutout. We can still move this into another pseudo element behind the .stamp main element*/
+	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+	/*pushing it back*/
+	z-index: -1;
+}
+/*Some text*/
+.stamp:before {
+	content: 'CSS3';
+	position: absolute;
+	bottom: 0; left: 0;
+	font: bold 24px arial;
+	color: white;
+	opacity: 0.75;
+	line-height: 100%;
+	padding: 20px;
+}
+
+/* http://www.sitepoint.com/pure-css3-paper-curls/ */
+.paper
+{
+	position: relative;
+	width: 100%;
+        height: 100%;
+	padding: 0;
+	margin: 0 auto;
+	background-color: #fff;
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+.paper:before, .paper:after
+{
+	position: absolute;
+	width: 40%;
+	height: 10px;
+	content: ' ';
+	left: 12px;
+	bottom: 12px;
+	background: transparent;
+	-webkit-transform: skew(-5deg) rotate(-5deg);
+	-moz-transform: skew(-5deg) rotate(-5deg);
+	-ms-transform: skew(-5deg) rotate(-5deg);
+	-o-transform: skew(-5deg) rotate(-5deg);
+	transform: skew(-5deg) rotate(-5deg);
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+	z-index: -1;
+} 
+
+.paper:after
+{
+	left: auto;
+	right: 12px;
+	-webkit-transform: skew(5deg) rotate(5deg);
+	-moz-transform: skew(5deg) rotate(5deg);
+	-ms-transform: skew(5deg) rotate(5deg);
+	-o-transform: skew(5deg) rotate(5deg);
+	transform: skew(5deg) rotate(5deg);
+}
+
+/* http://codepen.io/jmjpro/pen/BkELw */
+.rubber_stamp {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: lighter;
+  font-size: 2 em;
+  /*color: rgba(99, 76, 122, 1);
+  border: 2px solid rgba(99, 76, 122, 1);*/
+  border-radius: 50%;
+  position: relative;
+  opacity: 0.8;
+-webkit-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);*/
+}
+
+.rubber_stamp_idle {
+  color: rgba(99, 76, 122, 1);
+  border: 2px solid rgba(99, 76, 122, 1);
+}
+
+.rubber_stamp_hover {
+    color: rgba(255,255,255,1);
+  background-color: rgba(99, 76, 122, 1);
+  /*border: 2px solid rgba(255,255,255,1);*/
+}
+
+.rubber_stamp:after {
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: auto;
+  min-height: 300%;
+  top: -30%;
+  left: -10px;
+  padding: 10px;
+  opacity: 0.8;
+  background: url(data:image/png;base64,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) repeat;
 }
