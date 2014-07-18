@@ -1,0 +1,110 @@
+/* http://codepen.io/FWeinb/pen/optaL */
+.holder {
+    position:relative;
+    display: inline-block;
+    padding: 6px;
+    background: #fff;
+    box-shadow: 0 1px 2px 2px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    left: 50%;
+    margin-left:-245px;
+}
+
+.holder:after, .holder:before{
+	position:absolute;
+  content:'';
+  bottom:0;
+  width:250px;
+  height:100px;
+  border-radius: 45%;
+  box-shadow: inset 0 1px 1px hsla(0,0%,100%,.1),
+    0 4px 3px hsla(0,0%,0%,.1),
+    0 6px 6px hsla(0,0%,0%,.1),
+    0 10px 6px hsla(0,0%,0%,.1);
+  z-index:-1;
+}
+.holder:before{
+	left:75%;
+  margin-left:-125px;
+}
+
+#tapa, .map-container{
+    background-color: red;
+    width: 200px!important;
+    height: 400px!important;
+}
+
+#map, .uc-final{
+  width: 400px;
+  height: 800px;
+}
+
+
+.fold, .leaflet-tile-container {
+  position:relative;
+}
+
+.fold:before, .leaflet-tile-container:before{
+  position:absolute;
+  content:'';
+	background: linear-gradient(45deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 50%);
+
+  background-size:50% 50%;
+
+  width:100%;
+  height:100%;
+}
+
+/*The pin was designed by Dan Eden (https://twitter.com/#!/_dte).*/
+
+.pin {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #f33;
+    background-image: linear-gradient(to bottom, rgba(100,0,0,0), rgba(255,90,90,1));
+    border-radius: 100%;
+    box-shadow: 0 0 0 1px #c00, inset 0 1px 1px rgba(255,255,255,.6), 0 2px 2px rgba(0,0,0,.4);
+    position: absolute;
+}
+
+.pin:after {
+    height: 10px;
+    width: 2px;
+    content:'';
+    background: #aaa;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    left: 3px;
+    top: 100%;
+    box-shadow: inset 0 1px 1px hsla(0,0%,100%,.1),
+                0 0 1px 1px hsla(0,0%,0%,.2),
+                0 2px 3px hsla(0,0%,0%,.3),
+                0 4px 3px hsla(0,0%,0%,.3),
+                0 6px 6px hsla(0,0%,0%,.1),
+                2px 10px 6px hsla(0,0%,0%,.7);
+    
+}
+
+.pin:hover:after {
+    background: rgba(0,0,0,.7);
+
+    box-shadow: inset 0px -10px 10px rgba(0,0,0,.7), 0px 0px 0px 1px rgba(0,0,0,1), inset 0px 1px 0px 0px rgba(255,255,255,.3);
+
+    border-radius: 3px;
+    color: #fff;
+    content: attr(alt);
+    font-size: 11px;
+    font-family: "Helvetica Neue", Helvetica, Sans;
+    position: absolute;
+    text-align: center;
+    display: block;
+    padding: 6px 0px 10px 0;
+    width: 68px;
+    text-shadow: 0 -1px 0 #000;
+    white-space: nowrap;
+    z-index: 98;
+    left: -30px;
+    top: 15px;    
+}
