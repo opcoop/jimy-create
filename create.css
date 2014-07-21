@@ -15,6 +15,10 @@ body {
     margin: 0 auto;
 }
 
+li input {
+    float: right;
+}
+
 #content {
     position: fixed;
     left: 0px;

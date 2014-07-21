@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>¡ Crea tu radio !</title>
-	<link rel="stylesheet" type="text/css" href="create.css">
-        <link rel="stylesheet" type="text/css" href="map.css">
-        <link rel="shortcut icon" href="../favicon.ico">
-        <link rel="stylesheet" type="text/css" href="PFold/css/pfold.css" />
+  <title>¡ Crea tu radio !</title>
+  <link rel="stylesheet" type="text/css" href="PFold/css/pfold.css" />
+  <link rel="stylesheet" type="text/css" href="leaflet/dist/leaflet.css" />
 
-        <link rel="stylesheet" href="leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" type="text/css" href="create.css">
+  <link rel="stylesheet" type="text/css" href="map.css">
+  <link rel="stylesheet" type="text/css" href="form2.css">
+  <link rel="shortcut icon" href="../favicon.ico">
 
-        <script src="leaflet/dist/leaflet.js"></script>
-	<script type="text/javascript" src="PFold/js/modernizr.custom.79639.js"></script> 
+  <script src="leaflet/dist/leaflet.js"></script>
+  <script type="text/javascript" src="PFold/js/modernizr.custom.79639.js"></script> 
 
 </head>
 <body>
   <script type="text/javascript" src="jquery/jquery.js"></script>
   <script type="text/javascript" src="PFold/js/jquery.pfold.js"></script>
   <script type="text/javascript" src="app.js"></script>
+  <script type="text/template" id="form-tpl" >
+      <form name="create-form" class="login-form" action="" method="post">
+        <div class="header">
+          <h1>crea tu radio</h1>
+          <span>entra algunos datos para terminar tu instalación</span>
+        </div>
+        <div class="form-content">
+          <input  id="name"  placeholder="Nombre" autofocus required>
+          <input  id="email" placeholder="Email" type="email" required>
+          <input  id="pass"  placeholder="Clave" type="password" required>
+          <textarea name="desc" form="create-form"
+                    placeholder="Descripción" cols="40" rows="5" required></textarea>
+
+          <!-- <input  id="desc"  placeholder="Descripción" class="desc"> -->
+        </div>
+        <div class="footer">
+          <input type="submit" value="Go" class="button">
+        </div>
+      </form>
+  </script>
 
   <div id="clouds">
     <div class="cloud x1"></div>
@@ -26,24 +47,55 @@
     <div class="cloud x4"></div>
     <div class="cloud x5"></div>
     <div id="content">
-      <h1> crea tu radio </h1>
       <!-- http://codepen.io/FWeinb/pen/optaL -->
       <div class="centering">
-        <div class="map-container">
-          <div class="uc-initial-content">
-            <div class="paper">
-              <div id="tapa">
-                <div class="rubber_stamp">
-                  <h1>Mapa Argentino</h1>
-                  <p>crea tu radio</p>
-                </div>
+        <div class="form-container" id="wrap">
+          <div id="form-wrap">
+            <form name="create-form" class="login-form" action="" method="post">
+              <div class="header">
+                <h1>Creando una nueva Radio CAJ</h1>
               </div>
-            </div>
-          </div>
-          <div class="uc-final-content">
-            <div class="holder">
-                <div id="map" class="fold"></div>
-            </div>
+              <div class="form-content">
+                <label for="name">Mi radio se llama : </label>
+                <input  id="name"  placeholder="Nombre" type="text" autofocus required>
+                <label for="desc">En esta radio se habla de : </label>
+                <textarea name="desc" form="create-form"
+                          placeholder="Descripción" cols="40" rows="5"
+                          required></textarea>
+                <label for="email">Me pueden contactar aca : </label>
+                <input  id="email" placeholder="Email" type="email" required>
+                <label for="pass">Me authenticare con : </label>
+                <input  id="pass"  placeholder="Clave" type="password"
+                        required>
+
+                <label for="position">La radio se encuentra en : </label>
+                <input  id="position" placeholder="Mi ciudad" type="text" required>
+                <!-- <input  id="desc"  placeholder="Descripción" class="desc"> -->
+              </div>
+              <div class="footer">
+                <input type="submit" value="Enviar" class="button" id="send-form">
+                <input type="button" value="Cerrar mapa" class="button"
+                style="display:none;" id="fold-map">
+              </div>
+            </form>
+            <div class="map-container">
+                  <div class="uc-initial-content">
+                    <div class="paper">
+                      <div id="tapa">
+                        <div class="rubber_stamp">
+                          <h1>Mapa Argentino</h1>
+                          <p>crea tu radio</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="uc-final-content">
+                    <div class="holder">
+                      <div id="map" class="fold"></div>
+                    </div>
+                  </div>
+                </div>
+
           </div>
         </div>
       </div>
